@@ -7,9 +7,9 @@ Notas del Framework Django
   - [Activa el Proyecto](#activa-el-proyecto)
   - [Correr Servidor](#correr-servidor)
 
-- [MTV](#model-template-view)
+- [MTV](#mtv)
   - [Vista](#vista) 
-  - [Vista con parametros](#vista-parametros) 
+  - [Vista con parametros](#vista-con-parametros) 
 
 - [Plantillas](#plantilla)
   - [Variables](#variables)
