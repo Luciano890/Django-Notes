@@ -30,7 +30,7 @@ Notas del Framework Django
     - [Borrar Datos](#borrar-datos)
     - [Consultas](#consultas)
     
-- [Panel de Administracion](#panel-de-administracion)
+- [Panel de Administración](#panel-de-administracion)
 
 ---
 
