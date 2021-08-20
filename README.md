@@ -22,6 +22,16 @@ Notas del Framework Django
     - [render](#render)
   - [Plantillas incrustadas](#plantillas-incrustadas)
   - [Herencia](#herencia)
+
+- [Aplicación](#aplicación)
+- [BBDD](#bbdd)
+    - [Insertar Datos](#insertar-datos)
+    - [Actualizar Datos](#actualizar-datos)
+    - [Borrar Datos](#borrar-datos)
+    - [Consultas](#consultas)
+    
+- [Panel de Administracion](#panel-de-administracion)
+
 ---
 
 ## Iniciar Proyecto
@@ -688,3 +698,169 @@ La plantilla `Hija.html` hereda de `Padre.html`
 
 {% endblock %}
 ```
+
+---
+
+## Aplicación
+
+> _Nota:Todos los modelos (tablas de BBDD) tienen que estar en una aplicación_
+
+**Comandos**
+
+`python manage.py startapp nombre` Empezar aplicación
+
+`python manage.py check nombre` Mirar que la aplicación ejecute correctamente
+
+> models.py
+
+```python
+from django.db import models
+
+# Create your models here.
+
+class User(models.Model):
+    
+    nombre = models.CharField(max_length=30)
+    direccion = models.CharField(max_length=30)
+    edad = models.IntegerField()
+    email = models.EmailField()
+    tfno = models.CharField(max_length=30)
+    
+    
+class Article(models.Model):
+    
+    nombre = models.CharField(max_length=30)
+    seccion = models.CharField(max_length=30)
+    precio = models.IntegerField()
+    
+class Pedidos(models.Model):
+    
+    numero = models.IntegerField()
+    fecha = models.DateField()
+    entregado = models.BooleanField()
+    
+```
+
+> settings.py
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'StoreApp', # Nuevas Apps
+]
+```
+
+> BBDD hecha en Sqlite por defecto
+
+
+`python manage.py makemigrations` migrar los modelos a la base de datos
+
+`StoreApp\migrations\0001_initial.py` código de migración IMPORTANTE
+
+`python manage.py sqlmigrate 0001` genera el código SQL
+
+`python manage.py migrate` exporta información a la BBDD
+
+---
+
+## BBDD
+
+### Insertar datos
+
+`python manage.py shell` acceder al shell de python
+
+`>>> from StoreApp.models import User` modulo con el cual se insertan datos
+
+**Ejemplo de insersion**
+
+```sh
+>>> usr = User(nombre="Luciano",direccion="Calle 45",edad=21,email="chavarria890lc@gmail.com",tfno="232121344")
+>>> usr.save()
+```
+
+`>>> usr = User.objects.create(nombre="Tom",direccion="Calle 12",edad=22,email="chavarria890@gmail.com",tfno="23244344") ` para simplificar el comando
+
+### Actualizar datos
+
+**Ejemplo**
+
+`>>> usr.name = "Juan"`
+
+`>>> usr.save()`
+
+### Borrar datos
+
+**Ejemplo**
+
+`>>> usr2 = User.objects.get(id=1)`
+
+`>>> usr2.delete()`
+
+### Consultas
+
+**Ejemplo**
+
+```sh
+>>> Lista = User.objects.all()
+>>> Lista
+<QuerySet [<User: User object (2)>, <User: User object (3)>]>
+>>> Lista.query.__str__()  
+'SELECT "StoreApp_user"."id", "StoreApp_user"."nombre", "StoreApp_user"."direccion", "StoreApp_user"."edad", "StoreApp_user"."email", "StoreApp_user"."tfno" FROM "StoreApp_user"'
+```
+
+**Ejemplo 2**
+
+```sh
+>>> Lista = User.objects.filter(edad=21)
+```
+
+**Ejemplo 3**
+
+```sh
+>>> Lista = User.objects.filter(edad=21, email="chavarria890lc@gmail.com")
+```
+
+**Ejemplo 4**
+
+```sh
+>>> Lista = User.objects.filter(edad__gte=22) # edad mas grande que 22
+```
+
+**Ejemplo 5**
+
+```sh
+>>> Lista = User.objects.filter(edad__gte=22)
+```
+
+**Ejemplo 6**
+
+```sh
+>>> Lista = User.objects.filter(edad__lte=22) # edad menor que 22
+```
+
+**Ejemplo 7**
+
+```sh
+>>> Lista = User.objects.filter(edad__range(10,20)) # edad entre 10 y 20
+```
+
+**Ejemplo 8**
+
+```sh
+>>> Lista = User.objects.filter(edad__gte=10).order_by("edad") # edad mayor que 10 y ordenada de menor a mayor
+```
+
+**Ejemplo 9**
+
+```sh
+>>> Lista = User.objects.filter(edad__gte=10).order_by("-edad") # edad mayor que 10 y ordenada de mayor a menor
+```
+
+---
+
+## Panel de Administración
