@@ -11,7 +11,7 @@ Notas del Framework Django
   - [Vista](#vista) 
   - [Vista con parametros](#vista-con-parametros) 
 
-- [Plantillas](#plantilla)
+- [Plantillas](#plantillas)
   - [Variables](#variables)
   - [Bucles](#bucles)
   - [Condicionales](#condicionales)
