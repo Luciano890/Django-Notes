@@ -4,7 +4,7 @@ Notas del Framework Django
 # Menú
 
 - [Iniciar Proyecto](#iniciar-proyecto)
-  - [Activa Proyecto](#activa-proyecto)
+  - [Activa el Proyecto](#activa-proyecto)
   - [Correr Servidor](#correr-servidor)
 
 - [MTV](#model-template-view)
