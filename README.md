@@ -21,7 +21,7 @@ Notas del Framework Django
   - [Shortcuts](#shortcuts)
     - [render](#render)
   - [Plantillas incrustadas](#plantillas-incrustadas)
-  - [Herencia](#Herencia)
+  - [Herencia](#herencia)
 ---
 
 ## Iniciar Proyecto
