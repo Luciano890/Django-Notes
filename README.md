@@ -636,3 +636,55 @@ La plantilla `Hija.html` hereda de `Padre.html`
 </body>
 </html>
 ```
+
+**Ejemplo 2**
+
+> Plantilla `Padre.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Opcion 1</li>
+                <li>Opcion 2</li>
+                <li>Opcion 3</li>
+                <li>Opcion 4</li>
+                <li>Opcion 5</li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <span>Derechos Luciano 2021</span>
+    </footer>
+</body>
+</html>
+```
+
+> Plantilla `Hija.html`
+
+```html
+{% extends "super/Padre.html" %}
+
+{% block title %} Hija {% endblock %}
+
+
+{% block content %}
+
+<p>Hola mundo!! </p>
+
+{% endblock %}
+```
