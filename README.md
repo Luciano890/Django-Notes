@@ -19,7 +19,7 @@ Notas del Framework Django
   - [Filtros](#filtros)
   - [Cargadores de Plantillas](#cargadores-de-plantillas)
   - [Shortcuts](#shortcuts)
-    - [render](#render)
+   - [render](#render)
   - [Plantillas incrustadas](#plantillas-incrustadas)
   - [Herencia](#Herencia)
 
