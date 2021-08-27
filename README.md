@@ -30,7 +30,7 @@ Notas del Framework Django
     - [Borrar Datos](#borrar-datos)
     - [Consultas](#consultas)
 
-- [Panel de Administración](#panel-de-administracion)
+- [Panel de Administracion](#panel-de-administracion)
   - [Filtros](#Filtros)
   - [Cambiar idioma](#cambiar-idioma)
 
@@ -795,7 +795,7 @@ INSTALLED_APPS = [
 
 ---
 
-## Panel de Administración
+## Panel de Administracion
 
 `python manane.py createsuperuser` crear super usuario admin.
 
