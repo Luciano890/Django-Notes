@@ -41,9 +41,19 @@ Notas del Framework Django
 
 ---
 
+## Iniciar Proyecto
+
+`django-admin startproject nombre` Empezar proyecto
+
+## Correr Servidor
+
+> Dentro del proyecto
+
+`python manage.py runserver`
+
 ## Aplicación
 
-> _Nota:Todos los modelos (tablas de BBDD) tienen que estar en una aplicación_
+> _Nota: Todos los modelos (tablas de BBDD) tienen que estar en una aplicación_
 
 **Comandos**
 
@@ -73,7 +83,7 @@ class Article(models.Model):
     seccion = models.CharField(max_length=30)
     precio = models.IntegerField()
     
-class Pedidos(models.Model):
+class Pedidos(models.Model): # spanglish
     
     numero = models.IntegerField()
     fecha = models.DateField()
